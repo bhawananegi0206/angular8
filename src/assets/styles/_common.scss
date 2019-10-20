@@ -1,0 +1,481 @@
+@import "variables";
+@import "mixin";
+
+/*default for mobile*/
+
+
+/*Resetting CSS*/
+
+html,
+body,
+a,
+img,
+li,
+ul,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+span,
+section,
+header,
+aside,
+p,
+main,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+section,
+header,
+footer,
+aside,
+nav,
+main {
+    display: block;
+}
+
+body {
+    background-color: $sectionBackground;
+}
+
+html {
+    font-size: 14px;
+}
+
+
+/*--------------------------------------
+Fonts
+-----------------------------------------*/
+
+// @font-face {
+//     @include fontFace(SapientRegular, "../fonts/SapientSansRegular.eot");
+// }
+// @font-face {
+//     @include fontFace(SapientMedium, "../fonts/SPNTSM.eot");
+// }
+// @font-face {
+//     @include fontFace(SapientBold, "../fonts/SPNTSB.eot");
+// }
+// @font-face {
+//     @include fontFace(SapientLight, "../fonts/SPNTSL.eot");
+// }
+// @font-face {
+//     @include fontFace(SapientBlack, "../fonts/SapientSansRegular.eot");
+// }
+// @font-face {
+//     @include fontFace(SapientMediumItalic, "../fonts/SapientSansRegular.eot");
+// }
+// @font-face {
+//     @include fontFace(SapientCentroSlab, "../fonts/SapientCentroSlab-Reg.otf", "../fonts/SapientCentroSlab-Reg.eot");
+// }
+// @font-face {
+//     @include fontFace(FontAwesome, "../fonts/fontawesome-webfont.ttf", "../fonts/fontawesome-webfont.ttf");
+// }
+// h1 {
+//     @include heading (1.57142857rem, 1.57142857rem, "SapientRegular", $primaryFontColor)
+// }
+h2 {
+    @include heading ( 1.57143rem, 1.57143rem, "SapientCentroSlab", $headingFontColor);
+}
+
+// h3 {
+//     @include heading (1.28571429rem, 1.28571429rem, "SapientRegular", $primaryFontColor);
+//     text-decoration: underline;
+// }
+li {
+    list-style-type: none;
+}
+
+input {
+    outline: none;
+}
+
+input:focus {
+    box-shadow: 0 0 2px #21ADDD;
+}
+
+textarea:focus {
+    box-shadow: 0 0 2px #21ADDD;
+}
+
+select:focus {
+    box-shadow: 0 0 2px #21ADDD;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    /* remove scrollbar space */
+    background: #CCC;
+    /* optional: just make scrollbar invisible */
+}
+
+
+/* optional: show position indicator in red */
+
+::-webkit-scrollbar-thumb {
+    background: #999;
+}
+
+
+/*-----------------------------------------------
+For fix the size of container
+-------------------------------------------------*/
+
+.container {
+    max-width: $containerWidth;
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+
+/*-----------------------------------------------
+For error msg
+-------------------------------------------------*/
+
+.error {
+    color: $skillHeadingColor;
+    text-align: center;
+    padding: 20px;
+}
+
+#timedOut {
+    color: $skillHeadingColor;
+    font-size: 20px;
+    width: 100%;
+    display: inline-block;
+}
+
+
+/*-----------------------------------------------
+For warning msg
+-------------------------------------------------*/
+
+.warning {
+    color: $warningColor;
+}
+
+
+/*-----------------------------------------------
+For hidden 
+-------------------------------------------------*/
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+
+/*-----------------------------------------------
+For removeing underline
+-------------------------------------------------*/
+
+.link {
+    text-decoration: none;
+    color: $tertiaryBgColor;
+    &:hover {
+        color: $tertiaryBgColor*.8;
+    }
+    &:active {
+        color: $secondryBackColor;
+    }
+}
+
+
+/*-----------------------------------------------
+For clearing float effect
+-------------------------------------------------*/
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/*-----------------------------------------------
+For accessibility of labels
+-------------------------------------------------*/
+
+.accessibility {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+}
+
+
+/*-----------------------------------------------
+For pre loader
+-------------------------------------------------*/
+
+#loader {
+    //display: table-cell;
+    //vertical-align: middle;
+    //text-align: center;
+    /* top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0; */
+    //position: fixed;
+    //z-index: 1100;
+    //background-color: white;
+    //opacity: .6;
+    display: inline;
+}
+
+.disable-link {
+    pointer-events: none;
+}
+
+.ajax-loader {
+    position: relative;
+    display: inline;
+    left: 15px;
+}
+
+footer {
+    font-size: 1 rem;
+    color: $secondaryFontColor;
+    text-align: center;
+    padding: 40px 0px 10px 0px;
+}
+
+.copyright {
+    margin-left: 38%;
+    font-size: 1.2em;
+    margin-top: 40px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+
+/*-----------------------------------------------
+For primary large button
+-------------------------------------------------*/
+
+.pri-lg-btn {
+    background-color: $tertiaryBgColor;
+    color: $tertiaryFontColor;
+    height: $lgBtnHeight;
+    width: $lgBtnWidth;
+    &:hover {
+        background-color: $tertiaryBgColor*.8;
+    }
+    &:active {
+        background-color: $tertiaryBgColor*.6;
+    }
+}
+
+.submit-button {
+    background-color: $tertiaryBgColor;
+    color: $tertiaryFontColor;
+    padding: 7px 15px;
+    float: right;
+    margin-right: 12px;
+    &:hover {
+        background: $submitHoverColor;
+    }
+    @media screen and (max-width: 780px) {
+        padding: 8px 13px;
+    }
+}
+
+.submit-button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+/*-----------------------------------------------
+For secondry large button
+-------------------------------------------------*/
+
+.sec-lg-btn {
+    background-color: $secondryBackColor;
+    color: $tertiaryFontColor;
+    height: $smBtnHeight;
+    width: $smBtnWidth;
+    &:hover {
+        background-color: $secondryBackColor*.8;
+    }
+    &:active {
+        background-color: $secondryBackColor*.6;
+    }
+}
+
+//customised radio and checkbox
+input[type='radio'] {
+    display: none;
+}
+
+// styling the radio buttons
+input[type='radio']+label {
+    display: inline-block;
+    vertical-align: 1px;
+    cursor: pointer;
+    background-image: url("../images/radio-icon.png");
+    background-repeat: no-repeat;
+    background-size: 18px;
+    padding-left: 2px;
+    margin-right: 20px;
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+}
+
+#filterForm input[type='radio']+label {
+    padding-left: 25px;
+}
+
+input[type='radio']:checked+label {
+    background-image: url("../images/radio-checked-icon.png");
+}
+
+input[type="checkbox"] {
+    opacity: 0;
+}
+input[type='checkbox']+label{
+    position: relative;
+    margin-bottom: 0;
+    &::before , &::after{
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url("../images/checkbox.png") no-repeat;
+    background-size: 100%;
+    margin-left: -20px;
+    margin-top: -3px;
+    position: absolute;
+}
+    &::after {
+        background: url("../images/checkboxChecked.png") no-repeat;
+        background-size: 100%;
+        content: none;
+        margin-top: -23px;
+    }
+}
+/*Unhide the checkmark on the checked state*/
+ input[type="checkbox"]:checked {
+    &+ label::after{
+        content: "";
+    }
+    &+ label::before {
+        outline: none;
+    }
+}
+/* Focussed checkbox state */
+input[type="checkbox"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 9px;
+}
+
+.msg {
+    background-color: #fff;
+    margin-top: 60px;
+    height: 120px;
+    text-align: center;
+}
+
+.msg span {
+    font-size: 20px;
+    font-family: 'SapientRegular';
+    color: green;
+    margin-top: 20px;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.msg .fa-times-circle {
+    color: green;
+    font-size: 2em;
+    margin-top: 45px;
+}
+
+.msg .back-to-login {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    cursor: pointer;
+}
+
+.report-area {
+    display: inline-block;
+    color: #666;
+    background-color: #ffffff;
+    padding-top: 16px;
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    font-family: SapientRegular;
+}
+
+.second-section {
+    margin-left: 15px;
+}
+
+.dashboard .dashboardContainer {
+    height: 30rem;
+    background-color: #fff;
+    margin-bottom: 2rem;
+    padding: 2.8rem;
+    .radio-inline {
+        padding-left: 25px;
+    }
+}
+
+.dashboard .eyp {
+    margin-left: 70px;
+    margin-top: 30px;
+}
+
+#MoraleCompletion {
+    svg {
+        font-size: 30px;
+    }
+}
+
+.dashboard {
+    margin-top: 40px;
+    .heading {
+        border-bottom: 1px solid #000;
+    }
+    h2 {
+        display: inline-block;
+        padding: 0 0 25px 0;
+    }
+    .heading {
+        background: #FFF;
+    }
+}

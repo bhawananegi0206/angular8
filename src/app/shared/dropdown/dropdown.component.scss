@@ -1,0 +1,53 @@
+@import "../../../assets/styles/variables";
+
+.select-dropdown {
+    display: inline-block;
+    padding-left: 10px;
+    height: 40px;
+    .dropdown-section {
+        width: 70px;
+        height: 40px;
+        font-size: 1.5rem;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        outline: none;
+        border: none;
+        color: $headingFontColor;
+        font-family: SapientCentroClab;
+        background: transparent;
+        cursor: pointer;
+        position: relative;
+        z-index: 10;
+        border-bottom: 2px solid $headingFontColor;
+        margin-left: 5px;
+        padding:0 0 10px 10px;
+        margin-top: -1px;
+        &.active-dropdown {
+            position: absolute;
+            top: 56px;
+            overflow: auto;
+        }
+        option {
+            position: relative;
+            z-index: 10;
+            text-decoration: underline;
+        }
+    }
+    #year-dropdown{
+        width: 70px;
+    }
+    #supervises-dropdown{
+        width: 100px;
+        height: 35px;
+    }
+    select::-ms-expand {
+        display: none;
+    }
+    .dropdown-icon {
+        cursor: pointer;
+        color: $headingFontColor;
+        position: relative;
+        top: -4px;
+        right: 20px;
+    }
+}

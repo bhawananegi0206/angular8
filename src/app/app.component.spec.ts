@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular8-helloworld-example-tutorial'`, () => {
+  it(`should have as title 'employee records'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular8-helloworld-example-tutorial');
+    expect(app.title).toEqual('employee records');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('angular8-helloworld-example-tutorial app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('employee records app is running!');
   });
 });

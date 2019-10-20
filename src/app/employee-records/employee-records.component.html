@@ -1,0 +1,54 @@
+<div class="employee-container">
+
+  <div class="employee-header row col-sm-12">
+    <div class="col-sm-4">
+      <input class="form-control" type="text" [(ngModel)]="searchvalue" placeholder="Search...">
+    </div>
+    <div class="col-sm-4">
+      <app-dropdown [dropdownId]="dropdownPaginationId" [options]="pagesList" [selectedOption]="selectedPageSize"
+        (newOption)="ngOnInit($event)"></app-dropdown>
+    </div>
+    <div class="col-sm-2">
+      <div class="editmode btn btn-secondary" i18n (click)="toggleDisplay()">{{togglebuttonvalue}}</div>
+    </div>
+  </div>
+
+  <table class="table" >
+    <thead>
+      <tr>
+        <th (click)="changeorder('name','string' )">Name</th>
+        <th (click)="changeorder('salary','number')">Salary</th>
+        <th (click)="changeorder('age','number')">Age</th>
+        <th (click)="changeorder('designation','string')">Designation</th>
+      </tr>
+    </thead>
+   
+
+    <tbody #myTable class="viewmode" [hidden]="iseditmode">
+      <tr
+        *ngFor="let emp of employeedetails | search: searchvalue | cursor: cursorvalue | filter : filterby.fieldname : filterby.filtervalue : filterby.filterbymethod | sort :sortby.sortbyfieldname : sortby.sortbymethodvalue :sortby.type">
+        <td>{{emp.name}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.age}}</td>
+        <td>{{emp.designation}}</td>
+      </tr>
+    </tbody>
+    <tbody class="editmode" [hidden]="!iseditmode">
+      <tr *ngFor="let emp of employeedetails">
+        <td><input type="input" (change)="edittable($event,emp.id,'name')" value="{{emp.name}}"></td>
+        <td><input type="input" (change)="edittable($event,emp.id,'salary')" value="{{emp.salary}}"></td>
+        <td><input type="input" (change)="edittable($event,emp.id,'age')" value="{{emp.age}}"></td>
+        <td><input type="input" (change)="edittable($event,emp.id,'designation')" value="{{emp.designation}}"></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="alert alert-warning" *ngIf="!myTable.rows.length">No records found</div>
+  <app-loader-circle *ngIf="loader"></app-loader-circle>
+
+  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item">
+      <a (click)="setPage(page,pagesize)" class="page-link">{{page}}</a>
+    </li>
+  </ul>
+
+</div>

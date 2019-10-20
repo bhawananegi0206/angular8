@@ -1,0 +1,19 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixin";
+
+
+.employee-container{
+.employee-header{
+    @include flex-prop(flex,center,space-around);
+    margin: 15px 0;
+    padding-bottom: 40px;
+}
+.pagination{
+align-items:center;
+justify-content: center;
+}
+.table{
+border:1px solid $tableColor;
+margin-bottom:30px;
+}
+}

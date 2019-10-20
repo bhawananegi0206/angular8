@@ -1,0 +1,7 @@
+<div class="select-dropdown">
+    <label for="dropdown" class="accessibility">Records per page</label>
+    <select [id]="dropdownId" class="dropdown-section" name="dropdown" [(ngModel)]="selectedOption" (ngModelChange)="changeOption()" size="1">
+                    <option *ngFor="let option of options"  [attr.value]="option">{{option}}</option>
+			  </select>
+    <i class="fa fa-chevron-down dropdown-icon" title="Filter Goal Yearwise"></i>
+</div>
